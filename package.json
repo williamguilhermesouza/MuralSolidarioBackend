@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "node ./spec/support/test.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -18,7 +18,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "jest": "^26.6.3",
+    "jasmine": "^3.6.4",
+    "jasmine-console-reporter": "^3.1.0",
+    "jasmine-reporters": "^2.3.2",
     "superagent": "^6.1.0",
     "supertest": "^6.0.1"
   }

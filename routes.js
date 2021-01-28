@@ -9,8 +9,8 @@ routes.get('/ad/:id', AdService.getOne);
 
 routes.post('/ad/new', AdService.create);
 
-routes.put('/ad/:1/update', AdService.update);
+routes.put('/ad/:id/update', AdService.update);
 
-routes.delete('/ad/:1/delete', AdService.delete);
+routes.delete('/ad/:id/delete', AdService.delete);
 
 module.exports = routes;
