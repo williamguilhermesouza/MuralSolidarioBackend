@@ -1,9 +1,9 @@
 const { response } = require('express');
 const request = require('supertest');
 const app = require('./app');
-const Ad = require('./models/Ad');
+const Admock = require('./models/Admock');
 
-const exampleAd = new Ad(1, 'william', 'rua riodades', '999999', 'doaçao de cesta basica');
+const exampleAd = new Admock(1, 'william', 'rua riodades', '999999', 'doaçao de cesta basica');
 
 describe("Test the root path", () => {
   test("It should response the GET method", () => {

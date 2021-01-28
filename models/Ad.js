@@ -1,9 +1,12 @@
-module.exports = class Ad {
-    constructor(id, name, address, contact, description) {
-        this.Id = id;
-        this.Name = name;
-        this.Address = address;
-        this.Contact = contact;
-        this.Description = description;
-    }
-}
+const mongoose = require('mongoose');
+
+const AdSchema = new mongoose.Schema({
+    id: Number,
+    nome: String,
+    endereco: String,
+    contato: String,
+    descricao: String
+});
+
+
+module.exports = mongoose.model('Ad', AdSchema);

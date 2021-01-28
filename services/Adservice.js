@@ -1,21 +1,38 @@
+const Ad = require('../models/Ad');
+
+
 module.exports = {
-    getAll(request, response) {
-        return response.json('ok');
+    async getAll(request, response) {
+        const ads = await Ad.find();
+        return response.json(ads);
     },
 
-    getOne(request, response) {
-        return response.json('ok');
+    async getOne(request, response) {
+        const ad = await Ad.findById(request.query.id);
+        return response.json(ad);
     },
 
-    create(request, response) {
-        return response.json('ok');
+    async create(request, response) {
+        const { id, nome, endereco, contato, descricao } = request.body;
+        const ad = await Ad.create({
+            id,
+            nome,
+            endereco,
+            contato,
+            descricao,
+        });
+
+        return response.json(ad);
     },
 
-    update(request, response) {
-        return response.json('ok');
+    async update(request, response) {
+        const { id, nome, endereco, contato, descricao } = request.body;
+        const ad = await Ad.findByIdAndUpdate(request.query.id, { id, nome, endereco, contato, descricao });
+        return response.json(ad);
     },
 
-    delete(request, response) {
-        return response.json('ok');
+    async delete(request, response) {
+        const ad = await Ad.deleteOne(request.query.id);
+        return response.json(ad);
     }
 }
