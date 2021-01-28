@@ -32,6 +32,14 @@ describe("Test the root path", () => {
 });
 
 describe("Test the ad path", () => {
+  test("it should response the ad route with code 200", () => {
+    return request(app)
+      .get("/ad/1")
+      .then(response => {
+        expect(response.statusCode).toBe(200);
+      });
+  });
+
   test("it should return the ad with id 1", () => {
     return request(app)
       .get("/ad/1")
@@ -40,6 +48,15 @@ describe("Test the ad path", () => {
       });
   });
 
+  test("it should return the create route with status 200", () => {
+    return request(app)
+      .post("/ad/new", exampleAd)
+      .then(response => {
+        expect(response.statusCode).toBe(200);
+      });
+  });
+
+ 
   test("it should return the created ad", () => {
     return request(app)
       .post("/ad/new", exampleAd)
@@ -48,11 +65,28 @@ describe("Test the ad path", () => {
       });
   });
 
+  test("it should return the updated ad route with code 200", () => {
+    return request(app)
+      .put("/ad/1/update", exampleAd)
+      .then(response => {
+        expect(response.statusCode).toBe(200);
+      });
+  });
+
+
   test("it should return the updated ad", () => {
     return request(app)
       .put("/ad/1/update", exampleAd)
       .then(response => {
         expect(response).toBe(exampleAd);
+      });
+  });
+
+  test("it should return the deleted ad with status 200", () => {
+    return request(app)
+      .delete("/ad/1/delete", exampleAd)
+      .then(response => {
+        expect(response.statusCode).toBe(200);
       });
   });
 
