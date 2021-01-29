@@ -2,7 +2,7 @@ const app = require('./app');
 const http = require('http');
 const mongoose = require('mongoose');
 
-const port = 3000;
+const port = 3333;
 
 const server = http.Server(app);
 
