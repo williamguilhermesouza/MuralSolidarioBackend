@@ -6,7 +6,7 @@ const port = 3333;
 
 const server = http.Server(app);
 
-mongoose.connect('mongodb+srv://bill:NM3BvKNNMRtA3T9@cluster0.6lvwc.mongodb.net/<dbname>?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://bill:8MXRPmgecf2mCAK@cluster0.6lvwc.mongodb.net/ads?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
