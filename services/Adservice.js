@@ -1,4 +1,5 @@
 const Ad = require('../models/Ad');
+const fs = require('fs');
 
 
 module.exports = {
@@ -13,21 +14,22 @@ module.exports = {
     },
 
     async create(request, response) {
-        const { id, nome, endereco, contato, descricao } = request.body;
+        const { id, nome, endereco, contato, descricao, img } = request.body;
         const ad = await Ad.create({
             id,
             nome,
             endereco,
             contato,
             descricao,
+            img,
         });
 
         return response.json(ad);
     },
 
     async update(request, response) {
-        const { id, nome, endereco, contato, descricao } = request.body;
-        const ad = await Ad.findByIdAndUpdate(request.query.id, { id, nome, endereco, contato, descricao });
+        const { id, nome, endereco, contato, descricao, img } = request.body;
+        const ad = await Ad.findByIdAndUpdate(request.query.id, { id, nome, endereco, contato, descricao, img });
         return response.json(ad);
     },
 
