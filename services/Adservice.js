@@ -1,5 +1,5 @@
 const Ad = require('../models/Ad');
-const qs = require('querystring');
+const fs = require('fs');
 
 
 module.exports = {
@@ -17,16 +17,20 @@ module.exports = {
         const img = Object.values(request.files)[0];
         const body = Object.values(request.body);
         const [nome, endereco, contato, descricao ] = body;
+        const fileStream = fs.readFileSync(img.path);
 
-          const ad = await Ad.create({
+           const ad = await Ad.create({
             nome,
             endereco,
             contato,
             descricao,
-            img,
+            img: {
+                data: fileStream,
+                type: img.type
+            }
         });
 
-        return response.json(ad);
+        return response.json(ad); 
     },
 
     async update(request, response) {
