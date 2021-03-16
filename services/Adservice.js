@@ -1,5 +1,5 @@
 const Ad = require('../models/Ad');
-const fs = require('fs');
+const qs = require('querystring');
 
 
 module.exports = {
@@ -14,9 +14,11 @@ module.exports = {
     },
 
     async create(request, response) {
-        const { id, nome, endereco, contato, descricao, img } = request.body;
-        const ad = await Ad.create({
-            id,
+        const img = Object.values(request.files)[0];
+        const body = Object.values(request.body);
+        const [nome, endereco, contato, descricao ] = body;
+
+          const ad = await Ad.create({
             nome,
             endereco,
             contato,
