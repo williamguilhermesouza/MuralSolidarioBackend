@@ -1,5 +1,8 @@
 # Mural Solidario Backend
 
+![Repo-size](https://img.shields.io/github/repo-size/williamguilhermesouza/MuralSolidarioBackend)
+![Last-commit](https://img.shields.io/github/last-commit/williamguilhermesouza/MuralSolidarioBackend)
+ 
 ## Description
 
 This repository is home to the code of muralsolidario.com.br, a web app meant to aid
